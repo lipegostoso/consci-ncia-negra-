@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consciência Negra | Resistência & Legado</title>
+    <meta name="description" content="Dia da Consciência Negra: história, cultura e luta do povo negro no Brasil.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-gold: #b8860b;
+            --green: #006400;
+            --red: #ce1126;
+            --black: #0f0f0f;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --gray: #444;
+            --accent: #8B4513;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            color: var(--gray);
+            background: var(--light);
+            overflow-x: hidden;
+            transition: background 0.5s ease;
+        }
+
+        body.dark-mode {
+            background: #111;
+            color: #ddd;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--black);
+        }
+
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+            color: var(--gold);
+        }
+
+        /* Fundo com textura africana sutil */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23d4af3730" d="M50 10 L60 30 L80 30 L65 45 L70 65 L50 55 L30 65 L35 45 L20 30 L40 30 Z"/></svg>') repeat;
+            opacity: 0.05;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* Cabeçalho */
+        header {
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(12px);
+            color: white;
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+        }
+
+        nav {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 0;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* Hero com Parallax */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1582213782179-e0d53f98d023?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') 
+                        center center / cover fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(212,175,55,0.15), transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(212, 160, 23, 0.3);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(212, 160, 23, 0.4);
+        }
+
+        /* Seções */
+        section {
+            padding: 100px 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            color: var(--black);
+            position: relative;
+        }
+
+        body.dark-mode h2 { color: var(--gold); }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--dark-gold));
+            margin: 20px auto 0;
+            border-radius: 3px;
+        }
+
+        /* História */
+        .historia {
+            background: white;
+            border-radius: 20px;
+            padding: 3.5rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        body.dark-mode .historia {
+            background: #222;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .historia p {
+            font-size: 1.25rem;
+            max-width: 900px;
+            margin: 1.5rem auto;
+            color: #555;
+        }
+
+        body.dark-mode .historia p { color: #ccc; }
+
+        /* Personalidades */
+        .personalidades {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        body.dark-mode .card { background: #222; }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.08);
+        }
+
+        .card-body {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        body.dark-mode .card p { color: #aaa; }
+
+        /* Cultura */
+        .cultura {
+            background: linear-gradient(135deg, var(--green), #003300);
+            color: white;
+            border-radius: 25px;
+            padding: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cultura::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="%23d4af3750" cx="100" cy="100" r="80"/></svg>') center/contain no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .cultura h2, .cultura p { position: relative; z-index: 1; }
+
+        .cultura-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cultura-item {
+            background: rgba(255,255,255,0.15);
+            padding: 2rem;
+            border-radius: 18px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .cultura-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-8px);
+        }
+
+        .cultura-item i {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Mensagem */
+        .mensagem {
+            text-align: center;
+            background: var(--black);
+            color: white;
+            padding: 5rem 2rem;
+            border-radius: 25px;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mensagem::before {
+            content: '✊🏾';
+            position: absolute;
+            top: -50px; right: -50px;
+            font-size: 15rem;
+            opacity: 0.05;
+            transform: rotate(15deg);
+        }
+
+        .mensagem blockquote {
+            font-size: 2.2rem;
+            font-style: italic;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            color: var(--gold);
+            line-height: 1.5;
+        }
+
+        .mensagem cite {
+            color: #aaa;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Contato */
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        body.dark-mode label { color: var(--gold); }
+
+        input, textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        body.dark-mode input, body.dark-mode textarea {
+            background: #333;
+            border-color: #555;
+            color: white;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212, 160, 23, 0.2);
+        }
+
+        /* Rodapé */
+        footer {
+            background: var(--black);
+            color: white;
+            text-align: center;
+            padding: 4rem 20px;
+            margin-top: 5rem;
+        }
+
+        .social-links a {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: white;
+            transform: translateY(-5px) scale(1.2);
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.2rem; }
+            .nav-links { display: none; }
+            .card img { height: 250px; }
+            .mensagem blockquote { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <nav>
+            <div class="logo">✊ <span>Consciência</span> Negra</div>
+            <div class="nav-links">
+                <a href="#inicio">Início</a>
+                <a href="#historia">História</a>
+                <a href="#personalidades">Ícones</a>
+                <a href="#cultura">Cultura</a>
+                <a href="#contato">Contato</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>20 de Novembro</h1>
+            <p>Dia Nacional da Consciência Negra — <strong>Resistir, Celebrar, Transformar</strong></p>
+            <a href="#historia" class="btn">Conhecer a Luta</a>
+        </div>
+    </section>
+
+    <!-- História -->
+    <section id="historia" data-aos="fade-up">
+        <h2>Resistência e Liberdade</h2>
+        <div class="historia">
+            <p>
+                Em <strong>20 de novembro de 1695</strong>, <strong>Zumbi dos Palmares</strong> foi assassinado. Líder do maior quilombo do Brasil colonial, 
+                ele simboliza a luta pela liberdade e contra a escravidão.
+            </p>
+            <p>
+                Hoje, esta data nos convoca a refletir sobre o racismo estrutural, celebrar a contribuição negra na formação do Brasil 
+                e lutar por igualdade real.
+            </p>
+        </div>
+    </section>
+
+    <!-- Personalidades -->
+    <section id="personalidades" style="background: #fdfdfd;" data-aos="fade-up">
+        <h2>Ícones da Luta Negra</h2>
+        <div class="personalidades">
+            <div class="card" data-aos="zoom-in" data-aos-delay="100">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Zumbi_dos_Palmares.jpg/800px-Zumbi_dos_Palmares.jpg" alt="Zumbi">
+                <div class="card-body">
+                    <h3>Zumbi dos Palmares</h3>
+                    <p>Líder quilombola, símbolo máximo de resistência.</p>
+                </div>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Dandara_dos_Palmares.jpg" alt="Dandara">
+                <div class="card-body">
+                    <h3>Dandara</h3>
+                    <p>Guerreira estrategista, lutou pela liberdade dos quilombos.</p>
+                </div>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="300">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Machado_de_Assis_%28c.%201904%29_-_cortada.jpg" alt="Machado">
+                <div class="card-body">
+                    <h3>Machado de Assis</h3>
+                    <p>Gênio da literatura brasileira, autor de obras-primas.</p>
+                </div>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="400">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Carolina_Maria_de_Jesus.jpg" alt="Carolina">
+                <div class="card-body">
+                    <h3>Carolina Maria de Jesus</h3>
+                    <p>Voz da favela, autora de "Quarto de Despejo".</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultura -->
+    <section id="cultura" data-aos="fade-up">
+        <div class="cultura">
+            <h2>Cultura Afro-Brasileira</h2>
+            <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 2.5rem;">
+                O Brasil carrega a maior diáspora africana do mundo. Nossa identidade pulsa em cada batida de tambor.
+            </p>
+            <div class="cultura-grid">
+                <div class="cultura-item" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-drum"></i>
+                    <h3>Samba & Capoeira</h3>
+                    <p>Resistência em movimento e som.</p>
+                </div>
+                <div class="cultura-item" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-pray"></i>
+                    <h3>Religiões Africanas</h3>
+                    <p>Sabedoria ancestral viva.</p>
+                </div>
+                <div class="cultura-item" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Gastronomia</h3>
+                    <p>Acarajé, feijoada, vatapá.</p>
+                </div>
+                <div class="cultura-item" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Educação & Ciência</h3>
+                    <p>Negros na vanguarda do saber.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mensagem -->
+    <section class="mensagem" data-aos="fade-up">
+        <blockquote>
+            "Não basta não ser racista. É preciso ser antirracista."
+        </blockquote>
+        <cite>— Angela Davis</cite>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" data-aos="fade-up">
+        <h2>Faça Parte da Mudança</h2>
+        <form style="max-width: 650px; margin: 0 auto;">
+            <div class="form-group">
+                <label>Nome Completo</label>
+                <input type="text" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" placeholder="seu@email.com" required>
+            </div>
+            <div class="form-group">
+                <label>Sua Mensagem</label>
+                <textarea placeholder="Como você contribui para um Brasil antirracista?" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Consciência Negra Brasil | Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Inicializa animações
+        AOS.init({ duration: 1000, once: true });
+
+        // Modo noturno
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Formulário
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('✊🏾 Mensagem enviada com sucesso! Juntos, somos mais fortes.');
+        });
+    </script>
+</body>
+</html>
